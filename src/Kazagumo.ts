@@ -22,7 +22,7 @@ import {
   TrackStuckEvent,
   WebSocketClosedEvent,
 } from 'shoukaku';
-import { Connector } from 'shoukaku/dist/src/connectors/Connector';
+import { Connector } from 'shoukaku/dist/index';
 
 import { KazagumoPlayer } from './Managers/KazagumoPlayer';
 import { KazagumoTrack } from './Managers/Supports/KazagumoTrack';
@@ -269,11 +269,11 @@ export class Kazagumo extends EventEmitter {
       (options?.engine && ['youtube', 'youtube_music', 'soundcloud'].includes(options.engine)
         ? options.engine
         : null) ||
-        (!!this.KazagumoOptions.defaultSearchEngine &&
+      (!!this.KazagumoOptions.defaultSearchEngine &&
         ['youtube', 'youtube_music', 'soundcloud'].includes(this.KazagumoOptions.defaultSearchEngine!)
-          ? this.KazagumoOptions.defaultSearchEngine
-          : null) ||
-        'youtube'
+        ? this.KazagumoOptions.defaultSearchEngine
+        : null) ||
+      'youtube'
     ];
 
     const isUrl = /^https?:\/\/.*/.test(query);

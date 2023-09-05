@@ -1,7 +1,7 @@
 import { Kazagumo } from '../Kazagumo';
 import { KazagumoPlayer } from '../Index';
 import { KazagumoTrack } from '../Managers/Supports/KazagumoTrack';
-import { Constructor } from 'shoukaku/dist/src/Utils';
+import { Utils } from 'shoukaku/dist/index';
 import { Snowflake } from 'discord.js';
 
 export interface KazagumoOptions {
@@ -17,7 +17,7 @@ export interface KazagumoOptions {
   defaultYoutubeThumbnail?: YoutubeThumbnail;
   /** Extend some of the Structures */
   extends?: {
-    player?: Constructor<KazagumoPlayer>;
+    player?: Utils.Constructor<KazagumoPlayer>;
   };
   /** Send to guild's shard */
   send: (guildId: Snowflake, payload: Payload) => void;
